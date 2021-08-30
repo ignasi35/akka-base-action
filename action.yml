@@ -1,0 +1,23 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  olafurpg-java-version:  # id of input
+    description: 'Java identifier to use on the olafurpg/setup-scala action'
+    required: true
+    default: 'adopt@1.11'
+runs:
+  using: "composite"
+  steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          # we don't know what commit the last tag was it's safer to get entire repo so previousStableVersion resolves
+          fetch-depth: 0
+
+      - name: Set up JDK 8
+        uses: olafurpg/setup-scala@v10
+        with:
+          java-version: adopt@1.8.0
+
+      - name: Cache Coursier cache
+        uses: coursier/cache-action@v6.2
