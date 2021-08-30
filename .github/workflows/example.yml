@@ -6,7 +6,7 @@ jobs:
     name: Example using default values
     steps:
       - id: the-example-defaults
-        uses: actions/akka-base-action@v1
+        uses: ignasi35/akka-base-action@v1
       - run: java -version
         shell: bash
   test-180:
@@ -14,7 +14,7 @@ jobs:
     name: Example using user inputs
     steps:
       - id: the-example-180
-        uses: actions/akka-base-action@v1
+        uses: ignasi35/akka-base-action@v1
         with:
           olafurpg-java-version: 'adopt@1.8.0'
       - run: java -version
